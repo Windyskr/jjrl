@@ -35,7 +35,7 @@
 							</template>
 							<!-- 当前月 -->
 							<template v-else>
-								<!-- isoday 隔离 true 核酸 -->
+								<!-- isoday 隔离 true 检测 -->
 								<view class="day dis_f_co_c_c box"
 									:class="{ isoday: day.isoday, true: day.click, today: day.nyr == today.nyr }"
 									@click.stop="list_fun(day)">
@@ -79,14 +79,12 @@ export default {
 	},
 	data() {
 		return {
-			// 周，星期
-			weeks: ['周一', '周二', '周三', '周四', '周五', '周六', '周天'],
-
+			// 周的描述
+			weeks: ['周一', '周二', '周三', '周四', '周五', '周六', '周日'],
 			// 今天的时间信息
 			today: {},
 			// 当前date的时间信息
 			date_info: {},
-
 			// 当前月的列表数据
 			days: []
 		};
@@ -96,7 +94,7 @@ export default {
 		this.get_today_fun();
 	},
 	methods: {
-		// 日期转换成数字，方便判断
+		// 日期转换成数字
 		dateToNum(date) {
 			return parseInt(date.split('-').join(''))
 		},
